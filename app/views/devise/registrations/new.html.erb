@@ -1,0 +1,53 @@
+<div class="device_form">
+  <h3>新規登録</h3>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div class="field">
+      <%= f.label :あなたは？ %><br />
+      <%= f.radio_button :user_type, :s %>
+      <%= f.label :user_type, "生徒" %>
+      <%= f.radio_button :user_type, :t %>
+      <%= f.label :user_type, "先生" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :苗字（カナ） %><br />
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    </div>
+  
+  
+    <div class="field">
+      <%= f.label :名前（カナ）%><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    </div>
+
+    
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+  
+    <div class="field">
+      <%= f.label :パスワード %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :確認パスワード %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "登録する" %>
+    </div>
+  <% end %>
+  
+  <%= render "devise/shared/links" %>
+</div>
+

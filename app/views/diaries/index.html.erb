@@ -1,0 +1,51 @@
+<h1 class="my-diaries">My Diaries</h1>
+<div class="post-light">
+    <button type="button" class="btn btn-outline-primary" link_to new_user_diary_path>add diary</button>
+</div>
+<% @diaries.each do |diary| %>
+ <div class="media">
+    <div class="media-images">
+      <% if diary.images.present? %>
+        <%= image_tag diary.images[0], class: "mr-3 diaries_image" %>
+      <% else %>
+        <%= image_tag "/images/noimage.png", class: "mr-3 diaries_image" %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <h5><%= link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>
+      <%= diary.content %>
+    </div>
+  </div>
+
+
+<% end %>
+
+
+<style>
+    .my-diaries {
+        margin-bottom: 20px;
+    }
+    
+    .post-light {
+        float: right;
+    }
+    
+    .diaries_image {
+      width: 200px;
+      height:200px;
+    }
+    
+    .media {
+     padding: 10px;
+     border-bottom: 1px solid gray;
+    }
+    
+    @media screen and (max-width:500px) {
+     .media {
+        padding-bottom: 20px;
+     }
+     .media-images {
+        height: 50px auto;
+     }
+    }
+</style>

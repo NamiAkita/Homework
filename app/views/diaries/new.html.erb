@@ -1,0 +1,37 @@
+
+<div class="task_form">
+    <h1>Dairy</h1>
+    <div>
+        <%= form_for [@user, @diary] do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <div class="diary-new">
+              <%= f.label :Title %><br />
+              <%= f.text_field :title, class: "form-control" %><br />
+            </div>
+            <div class="diary-new">
+              <%= f.label :Date %><br />
+              <%= f.date_field :day_of_diary, class: "form-control col-6" %><br />
+            </div>
+            <div class="diary-new">
+              <%= f.label :Content %><br />
+              <%= f.text_area :content, class: "form-control", :size=>"60x10" %><br />
+            </div>
+            <div class="diary-new">
+              <%= f.label :Images %><br />
+              <%= f.file_field :images, multiple: true %><br />
+            </div>
+            <div class="diary-new">
+              <%= f.label :Videos %><br />
+              <%= f.file_field :videos, multiple: true %><br />
+            </div>            
+            <div class="diary-new">
+              <%= f.submit 'Go!!', class: "submit btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+    </div>
+    <div class="space">
+        
+    </div>
+</div>
+

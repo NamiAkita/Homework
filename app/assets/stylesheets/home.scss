@@ -1,0 +1,29 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro';
+}
+
+.main-top-main{
+    background-image: url("/images/502596eeeb5addaf90b9bf6de66401a0_l.jpg");
+    background-size: cover;
+
+}
+
+.top-message h1 {
+    font-size: 37px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    margin-left: 75px;
+    padding-top: 255px;
+}
+
+.top-message p {
+    font-size: 24px;
+    padding-bottom: 200px;
+    margin-top: 90px;
+    margin-left: 150px;
+}

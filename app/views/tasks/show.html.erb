@@ -1,0 +1,61 @@
+<div class="task-show">
+    <div class="main-title">
+    <h1 class="task">Task</h1>
+    </div>
+     <div class="title">
+      <p class="label">Title</p>
+      <%= @task.title %>
+     </div>
+     <div class="content">
+      <p class="label">Content</p>
+      <%= simple_format(@task.content) %>
+     </div>
+     <div class="created_at">
+      <p class="label">出題日</p>
+      <%= @task.created_at.strftime("%Y/%-m/%-d") %>
+     </div>
+     <div class="audio">
+        <% if @task.audio.present? %>
+         <p class="label">音声</p>
+          <%= audio_tag @task.audio, :controls => true  %>
+        <% end %>
+     </div>
+     <div class="youtube">
+        <% if @task.youtube.present? %>
+          <p class="label">youtube</p>
+            <div class="iframe-wrapper">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @url %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+    </div>
+        <% end %>
+     </div>
+     
+     <div class="pdf">
+        <% if @task.pdf.present? %>
+            <p class="label">PDF</p>
+            <iframe src="<%= @task.pdf %>" frameborder="0"></iframe>
+        <% end %>
+     </div>
+</div>
+
+<style>
+.task {
+    margin-bottom: 20px;
+}
+.main-title {
+    border-bottom: 1px solid gray;
+}
+iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.iframe-wrapper {
+  padding-bottom: 56.25%;
+  height: 0;
+  position: relative;
+}
+</style>

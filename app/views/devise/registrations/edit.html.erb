@@ -1,0 +1,105 @@
+<div class="device_form">
+<h3>Profile</h3>
+
+<div>
+  <% if @user.image.present? %>
+    <%= image_tag @user.image, class: "icon-image" %>
+  <% else %>
+    <%= image_tag 'noimage.png', class: "icon-image" %>
+  <% end %>  
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+
+  <div class="field">
+    <%= f.label :苗字（カナ） %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :名前（カナ）%><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :苗字（ベトナム語） %><br />
+    <%= f.text_field :first_name_viet, autofocus: true, autocomplete: "Vietnamese-first-name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :名前（ベトナム語） %><br />
+    <%= f.text_field :last_name_viet, autofocus: true, autocomplete: "Vietnamese-last-name" %>
+  </div>
+  
+  
+  
+  <div class="field">
+    <%= f.label :性別 %><br />
+    <%= f.select :gender, ['男性', '女性', 'その他'], autofocus: true, autocomplete: "性別" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone" %>
+  </div>
+
+    
+  <div class="field">
+    <%= f.label :プロフィール写真 %><br />
+    <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+  </div>
+  
+  <diSv>  
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <%= f.label :ステータス %><br />
+    <%= f.radio_button :user_type, :s %>
+    <%= f.label :user_type, "生徒" %>
+    <%= f.radio_button :user_type, :t %>
+    <%= f.label :user_type, "先生" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :確認パスワード %> <br />
+    <i>(変更するには現在のパスワードが必要です)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>アカウント除去</h3>
+
+<%= button_to "除去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+
+<%= link_to "Back", :back %>
+<div class="back-button"></div>
+</div>
+
+ </div>
+
+<style>
+.icon-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid gray;
+}
+
+
+</style>

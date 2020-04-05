@@ -1,0 +1,21 @@
+<h1>Answer 一覧</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Que Title</th>
+      <th scope="col">Question</th>
+      <th scope="col">Reply</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @answers.each do |answer| %>
+        <tr>
+          <th scope="row">1</th>
+          <td><%= link_to answer.title, new_answer_answer_path(answer.id) %></td>
+          <td><%= answer.content, :size=>"60x10" %></td>
+          <td><%= answer.created_at.strftime("%Y/%-m/%-d") %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>    

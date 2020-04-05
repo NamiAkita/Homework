@@ -1,0 +1,43 @@
+<%= form_for @task do |f| %>
+
+  <div class="task">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autocomplete: "title", class: "form-control col-12" %>
+  </div>
+
+  <div class="task">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, autocomplete: "content", size: "20x10", class: "form-control col-12" %>
+  </div>
+
+  <div class="task">
+    <%= f.label :pdf %><br />
+    <%= f.file_field :pdf, autocomplete: "pdf", class: "task-pdf" %>
+  </div>
+  
+  <div class="task">
+    <%= f.label :audio %><br />
+    <%= f.file_field :audio, autocomplete: "audio", class: "task-audio" %>
+  </div>
+
+  <div class="task">
+    <%= f.label :youtube %><br />
+    <%= f.text_field :youtube, autocomplete: "youtube", class: "form-control col-12", placeholder: "https://www.youtube.com/...." %>
+  </div>  
+  
+  
+  <div class="task submit">
+     <%= f.submit "宿題作成", class: "btn btn-info" %>
+  </div>
+<% end %>
+
+
+<style>
+    .task {
+        padding: 10px 0;
+    }
+    
+    .submit {
+        margin: 0 0 50px 0;
+    }
+</style>

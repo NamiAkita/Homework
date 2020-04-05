@@ -1,0 +1,99 @@
+// Place all the styles related to the diaries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#nonsubmit {
+  
+    .search-form {
+        margin-bottom: 10px;
+    }
+    .title {
+        border-bottom: 1px solid gray;
+        margin-bottom:10px;
+    }
+    
+    .nonsubmit_title {
+        margin-bottom:30px;
+        margin-left: 30px;
+    }
+    .user-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid gray;
+    }
+    
+    .user-name {
+        display: inline-block;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    
+    .user-info {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    @media screen and (max-width:500px) {
+        .title {
+            text-align: left;
+        }
+        .nonsubmit_title {
+            text-align: center;
+        }
+        
+        .container {
+            text-align: center;
+        }
+    }
+  
+  
+  
+}
+
+
+#all_diaries {
+    .container {
+    background: #ecbfc3;
+    }
+
+.post-light {
+  float: right;
+    }
+
+.diaries_image {
+  width: 200px;
+  height:200px;
+    }
+
+.media {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+    }
+
+@media screen and (max-width:500px) {
+  .media {
+    padding-bottom: 20px;
+  }
+  .media-images {
+    height: 50px auto;
+  }
+  
+}
+}
+
+
+  .diary_form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .submit {
+    margin: 30px 0;  
+  }
+  
+  @media screen and (max-width:500px) {
+    
+    
+  }

@@ -1,0 +1,32 @@
+<div id="nonsubmit">
+  <div class="title">
+   <h3 class="nonsubmit_title"><%= @search_date.to_date.strftime("%Y/%-m/%-d") %>の未提出者</h3>
+   <%= form_tag "/diaries/nonsubmit", method: "get", class: "search-form" do  %>
+     <%= date_field_tag :search_date %>
+     <%= submit_tag "検索", class: "btn btn-info" %>
+   <% end %>
+  </div>
+  
+  <% if @future == "f" %>
+    <p>未来の日付です</p>
+  <% else %>
+    <div class="container">
+        <% @nonsubmit_users.each do |nonsubmit_user| %>
+          <div class="user-info">
+          
+             
+              <% if nonsubmit_user.image.present? %>
+               <%= image_tag nonsubmit_user.image, class: "user-image" %>
+              <% else %>
+               <%= image_tag "/images/noimage.png", class: "user-image" %>
+              <% end %>
+             
+             <div class="user-name">
+                <%= link_to "#{nonsubmit_user.last_name} #{nonsubmit_user.first_name}", user_path(nonsubmit_user.id), class:"" %>
+             </div>
+         </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+

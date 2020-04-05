@@ -1,0 +1,43 @@
+
+  .device_form {
+    width: 400px;
+    margin: 50px auto;
+    background: #ccced0;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .device_form > h3 {
+    padding: 20px 0;
+  }
+  
+.shared-links {
+    padding-bottom: 50px;
+  }
+  
+  .device_form input {
+    border-radius: 5px;
+  }
+  
+  .device_form .attend {
+    padding-right: 20px;
+  }
+  
+  .device_form .back-button {
+    padding: 20px;
+  }
+  
+@media screen and (max-width:500px) {
+  
+  .device_form {
+    width: 90%;
+    margin: 50px auto;
+    background: #ccced0;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  
+}
+  
+

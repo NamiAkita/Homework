@@ -1,0 +1,68 @@
+<h1 class="main-title">Question</h1>
+    <div class="title">
+      <p class="label">Title</p>
+      <%= @question.title %>
+    </div>
+     <div class="content">
+      <p class="label">Content</p>
+      <%= simple_format(@question.content) %>
+    </div>
+    <div class="created_at">
+      <p class="label">出題日</p>
+      <%= @question.created_at.strftime("%Y/%-m/%-d") %>
+    </div>
+    
+    <hr class="question-answer-hr">
+
+  <!--  先生の回答入力欄　-->
+    <% if current_user.user_type == "t" %>
+      <%= form_for [@question, @answer] do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :question_id, :value => @question.id %>
+              <div class="answer-new">
+                <div class="answer">
+                <%= f.label :Answer %><br />
+                </div>
+                <%= f.text_area :reply, class: "form-control" %><br />
+              </div>
+          
+              <div class="answer-new">
+                <%= f.submit 'Go!!', class: "submit btn btn-primary" %>
+              </div>
+      <% end %>
+    <% end %>    
+  <!--  先生の回答入力欄 ここまで　-->
+    
+  <!--  過去の回答一覧　-->
+  <p class="label">Answers</p>
+    <% @answers.each do |answer| %>
+     <%= simple_format(answer.reply) %>
+     <%= answer.created_at.strftime("%Y/%-m/%-d") %>
+     <hr>
+    <% end %>
+    
+ 
+<style>
+  .main-title {
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+  .question-answer-hr {
+    background: gray;
+    height: 2px;
+    margin-bottom: 50px;
+  }
+  
+  .label {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  
+  .title {
+    padding-bottom: 20px;
+  }
+  
+  .answer {
+    font-weight: bolder;
+  }
+</style>

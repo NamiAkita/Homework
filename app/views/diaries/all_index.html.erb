@@ -1,0 +1,36 @@
+<div id="all_diaries">
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to "未提出者", diaries_nonsubmit_path, class: "nav-link active" %>
+  </li>
+</ul>
+<div class="container">
+  <h1>Diaries</h1>
+<div class="post-light">
+  <% if current_user.user_type == "s" %>
+    <%= link_to "Add Diary", new_user_diary_path(current_user), class: "btn btn-outline-primary" %>
+  <% end %>
+</div>
+
+
+
+
+<div id="all-diaries">
+  <% @diaries.each do |diary| %>
+  <div class="media">
+    <div class="media-images">
+      <% if diary.images.present? %>
+        <%= image_tag diary.images[0], class: "mr-3 diaries_image" %>
+      <% else %>
+        <%= image_tag "/images/noimage.png", class: "mr-3 diaries_image" %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <h5><%= link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>
+      <%= diary.content %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+
