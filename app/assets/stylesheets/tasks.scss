@@ -2,17 +2,85 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#show {
+    .post-light {
+        float: right;
+    }
+    .task {
+        margin-bottom: 20px;
+    }
+    .main-title {
+        border-bottom: 1px solid gray;
+    }
+    .iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
 
-.task-show {
-    margin: 0 0 100px 0;
+    .iframe-wrapper {
+        padding-bottom: 56.25%;
+        height: 0;
+        position: relative;
+    }
+
+
 }
 
-.task-show {
+#task-new {
+    .new-task {
+        border-bottom: 1px solid gray;
+    }
+    
+    .task {
+        padding: 10px 0;
+    }
+    
+    .submit {
+        margin: 0 0 50px 0;
+    }
+    
+}
+
+#task-index {
+    
+    @media (max-width: 430px) {
+
+        .th-3 {
+          display: none;
+        }
+     
+   }
+
+    
+    .post-light {
+        float: right;
+        margin: 20px 0 20px 0;
+    }
+    
+    
+    .table-task:hover {
+        background: rgba(0, 210, 255, 0.5);
+    }
+}
+
+
+
+#show {
+    .task-show {
+        margin: 0 0 100px 0;
+    }
 
     .label {
         padding: 10px 0 0 0;
         font-weight: bold;
         font-size: 1.5rem;
     }
-
+    
+    .iframe-wrapper {
+        width: 60%;
+        height: 315px ;
+    }
 }

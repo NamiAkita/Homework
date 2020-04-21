@@ -17,4 +17,10 @@
  body > .container {
      margin-top: 50px;
  }
+ 
+ .navbar-user-image {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+ }
 

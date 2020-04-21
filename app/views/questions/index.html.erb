@@ -1,8 +1,11 @@
+<div id="all-questions">
 <h1>Question 一覧</h1>
+<div class="container">
 <table class="table table-hover">
+  <%= paginate  @questions %>
   <thead>
-    <tr>
-      <th scope="col">#</th>
+    <tr bgcolor="#acbdc7">
+      <th scope="col">No.</th>
       <th scope="col">Title</th>
       <th scope="col">Content</th>
       <th scope="col">date</th>
@@ -11,7 +14,7 @@
   <tbody>
     <% @questions.each do |question| %>
         <tr>
-          <th scope="row">1</th>
+          <th scope="row"><%= question.id %></th>
           <!--<td>< link_to question.title, new_question_answer_path(question.id) %></td>-->
           <td><%= link_to question.title, question_path(question.id) %></td>
           <td><%= question.content %></td>
@@ -20,3 +23,9 @@
     <% end %>
   </tbody>
 </table>    
+</div>
+
+  <%= paginate  @questions %>
+  
+</div>
+

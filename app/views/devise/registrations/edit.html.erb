@@ -64,12 +64,21 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  
   <div class="field">
-    <%= f.label :ステータス %><br />
+    <%= f.label :あなたは？ %><br />
     <%= f.radio_button :user_type, :s %>
     <%= f.label :user_type, "生徒" %>
     <%= f.radio_button :user_type, :t %>
     <%= f.label :user_type, "先生" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :ステータス %><br />
+    <%= f.radio_button :status, :a %>
+    <%= f.label :status, "在学生" %>
+    <%= f.radio_button :status, :g %>
+    <%= f.label :status, "卒業生" %>
   </div>
 
   <div class="field">

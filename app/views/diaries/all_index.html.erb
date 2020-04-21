@@ -1,36 +1,79 @@
-<div id="all_diaries">
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <%= link_to "未提出者", diaries_nonsubmit_path, class: "nav-link active" %>
-  </li>
-</ul>
-<div class="container">
-  <h1>Diaries</h1>
-<div class="post-light">
-  <% if current_user.user_type == "s" %>
-    <%= link_to "Add Diary", new_user_diary_path(current_user), class: "btn btn-outline-primary" %>
-  <% end %>
-</div>
-
-
-
-
 <div id="all-diaries">
-  <% @diaries.each do |diary| %>
-  <div class="media">
-    <div class="media-images">
-      <% if diary.images.present? %>
-        <%= image_tag diary.images[0], class: "mr-3 diaries_image" %>
-      <% else %>
-        <%= image_tag "/images/noimage.png", class: "mr-3 diaries_image" %>
-      <% end %>
+  <% if current_user.user_type == "t" %>
+    <div class="nonsubmits">
+      <%= link_to "未提出者", diaries_nonsubmit_path, class: "btn btn-warning" %>
     </div>
-    <div class="media-body">
-      <h5><%= link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>
-      <%= diary.content %>
-    </div>
-  </div>
   <% end %>
+    
+  <div class="container">
+    <h2 class="all-diaries-title">みんなの日記</h2>
+    <%= paginate @diaries %>
+    <hr>
+
+  <div id="all-diaries">
+    <% @diaries.each do |diary| %>
+      <%= link_to "/users/#{diary.user_id}/diaries/#{diary.id}" do %>
+      <div class="media">
+        <div class="media-images">
+          <% if diary.images.present? %>
+            <%= image_tag diary.images[0], class: "mr-3 diaries_image" %>
+          <% else %>
+            <%= image_tag "/images/noimage.png", class: "mr-3 diaries_image" %>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <h5 class="mt-0"><%= diary.title %></h5>
+          <!--<h5>< link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>-->
+          <%= diary.content.truncate(14) %>
+        </div>
+      </div>
+      <% end %>   <!-- link_to の end -->
+    <% end %>   <!-- diaries.each の end -->
+  </div>
+  <div class="pagination-footer">
+    <%= paginate @diaries %>
+  </div>
+      <!--< will_paginate @diaries, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>-->
+
+  
+    <!--<div class="pagination">-->
+    <!--  <nav aria-label="Page navigation example">-->
+    <!--    <ul class="pagination">-->
+    <!--      <li class="page-item">-->
+    <!--        <a class="page-link" href="#" aria-label="Previous">-->
+    <!--          <span aria-hidden="true">&laquo;</span>-->
+    <!--        </a>-->
+    <!--      </li>-->
+    <!--      <li class="page-item">-->
+    <!--        < form_tag "/all_diaries", :method => "get" do %>-->
+    <!--          < hidden_field_tag :page, :value => @params_page %>-->
+    <!--          < submit_tag @params_page %>-->
+    <!--        < end %>-->
+            <!--< link_to "1", all_diaries_path, class: "page-link" %>-->
+    <!--      </li>-->
+    <!--      <li class="page-item">-->
+    <!--        < form_tag "/all_diaries", :method => "get" do %>-->
+    <!--          < hidden_field_tag :page, :value => @params_page+1 %>-->
+    <!--          < submit_tag @params_page+1 %>-->
+    <!--        < end %>          </li>-->
+    <!--      <li class="page-item">-->
+    <!--        < form_tag "/all_diaries", :method => "get" do %>-->
+    <!--          < hidden_field_tag :page, :value => @params_page+2 %>-->
+    <!--          < submit_tag @params_page+2 %>-->
+    <!--        < end %>          </li>-->
+    <!--      <li class="page-item">-->
+    <!--        <a class="page-link" href="#" aria-label="Next">-->
+    <!--          <span aria-hidden="true">&raquo;</span>-->
+    <!--        </a>-->
+    <!--      </li>-->
+    <!--    </ul>-->
+    <!--  </nav>-->
+    <!--</div>-->
+    
+
+  </div>
+  
 </div>
-</div>
+
+
 

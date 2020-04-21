@@ -5,5 +5,5 @@ class Diary < ApplicationRecord
     mount_uploaders :images, ImageUploader
     serialize :images, JSON
     
-    mount_uploader :videos, ImageUploader
+    mount_uploader :video, VideoUploader
 end

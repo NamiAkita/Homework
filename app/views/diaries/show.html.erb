@@ -1,29 +1,32 @@
-<h1 class="my-diary">Diary</h1>
-<p>Title</p><br />
-<%= @diary.title %><br />
+<div id="diaries-show">
+<div class="diary-day">
+ <%= @diary.created_at.strftime("%Y/%-m/%-d") %>
+</div>    
+<h2 class="my-diary">日記</h2>
 
-<%= @diary.content %><br />
-<div class="diary-images">
-<% if @diary.images.present? %>
-    <% @diary.images.each do |image| %>
-        <%= image_tag image, class: "diary-show-image" %>
+
+<hr>
+
+
+
+<div class="diary-content">
+ <%= @diary.content %><br />
+</div>
+<hr>
+  <% if @diary.images.present? %>
+    <div class="diary-images" oncontextmenu="return false;">
+        <% @diary.images.each do |image| %>
+            <%= image_tag image, class: "diary-show-image" %>
+        <% end %>
+    </div>        
+  <% end %>
+
+<!--<div class="diary-show-video-wrapper">-->
+    <% if @diary.video.present? %>
+        <%= video_tag @diary.video, :controls => true, class: "diary-show-video", :controlsList => "nodownload" %>
     <% end %>
-<% end %>
+<!--</div>-->
 </div>
 
-<% if @diary.videos.present? %>
-    <% @diary.videos.each do |video| %>
-        <%= video_tag video, class: "diary-show-video" %>
-    <% end %>
-<% end %>
 
-<style>
-    .my-diary {
-        border-bottom: 1px solid gray;
-    }
-    .diary-show-image {
-        width: 500px;
-        height:400px;
-        margin: 10px;
-    }
-</style>
+

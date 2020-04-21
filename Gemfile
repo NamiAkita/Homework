@@ -52,3 +52,10 @@ gem 'devise'
 
 gem 'carrierwave'
 gem 'fog-aws'
+
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
+# gem 'bootstrap-sass'
+
+
+gem 'kaminari'

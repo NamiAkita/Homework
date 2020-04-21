@@ -6,17 +6,27 @@ class DiariesController < ApplicationController
   end
 
   def index
+    @user = User.find(params[:user_id])
     @diaries = Diary.where(user_id: params[:user_id]).order(created_at: :desc)
   end
   
   def all_index
-    @diaries = Diary.all
     
-      # [[1,"title1", "content1","[images1,image2,image3]","[video1]",created_at,updated_at],
-      # [2,"title1", "content1","[images1,image2,image3]","[video1]",created_at,updated_at],
-      # [3,"title1", "content1","[images1,image2,image3]","[video1]",created_at,updated_at],
-      # [5,"title1", "content1","[images1,image2,image3]","[video1]",created_at,updated_at],
-      # ]
+    @diaries = Diary.page(params[:page]).per(5).order(created_at: :desc)
+
+    # @page = 5
+    # if params[:page].present?
+    #   @offset = (params[:page].to_i - 1)*@page
+    # else
+    #   @offset = 0
+    # end
+    # @diaries = Diary.limit(@page).offset(@offset)
+    # if @params_page.present?
+    #   @params_page = params[:page]
+    # else
+    #   @params_page = 1
+    # end
+    # @diaries = Diary.all.order(created_at: :desc)
   end
   
   def nonsubmit
@@ -83,6 +93,6 @@ class DiariesController < ApplicationController
   
   private 
       def diary_params
-          params.require(:diary).permit({images: []}, {videos: []}, :title, :content, :user_id, :day_of_diary).merge(user_id: current_user.id)
+          params.require(:diary).permit({images: []}, :video, :title, :content, :user_id, :day_of_diary).merge(user_id: current_user.id)
       end
 end

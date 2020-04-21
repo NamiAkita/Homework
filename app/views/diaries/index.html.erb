@@ -1,7 +1,54 @@
-<h1 class="my-diaries">My Diaries</h1>
-<div class="post-light">
-    <button type="button" class="btn btn-outline-primary" link_to new_user_diary_path>add diary</button>
-</div>
+<div id="mydiary">
+  <h2 class="my-profile">プロフィール</h2>
+
+  <% if @user.image.present? %>
+    <%= image_tag @user.image, class: "user-image" %>
+  <% else %>
+    <%= image_tag "/images/noimage.png", class: "user-image" %>
+  <% end %>
+  
+  
+  <p class="name">名前：<%= @user.first_name %><%= @user.last_name %></p>
+  
+  <% if @user.status == "a" %>
+    <p class="status">ステータス：在学生</p>
+  <% elsif @user.status == "g" %>
+    <p class="status">ステータス：卒業生</p>
+  <% else %>
+   <p></p>
+  <% end %>
+  
+  
+  <!--<div class="post-light">-->
+  <!--  < link_to "編集", edit_user_registration_path, class: "btn btn-outline-primary" %>-->
+  <!--</div>-->
+  
+  
+  <hr>
+  
+  
+  <h2 class="my-diaries">日記</h2>
+<div class="pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+<div class="diary-container">
 <% @diaries.each do |diary| %>
  <div class="media">
     <div class="media-images">
@@ -13,39 +60,30 @@
     </div>
     <div class="media-body">
       <h5><%= link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>
-      <%= diary.content %>
+      <%= diary.content.truncate(14) %>
     </div>
   </div>
 
-
 <% end %>
+</div>
 
-
-<style>
-    .my-diaries {
-        margin-bottom: 20px;
-    }
-    
-    .post-light {
-        float: right;
-    }
-    
-    .diaries_image {
-      width: 200px;
-      height:200px;
-    }
-    
-    .media {
-     padding: 10px;
-     border-bottom: 1px solid gray;
-    }
-    
-    @media screen and (max-width:500px) {
-     .media {
-        padding-bottom: 20px;
-     }
-     .media-images {
-        height: 50px auto;
-     }
-    }
-</style>
+    <div class="pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>

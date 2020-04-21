@@ -1,3 +1,4 @@
+<div id="user-show">
 <div class="image">
 <% if @user.image.present? %>
     <%= image_tag @user.image, class: "user-image" %>
@@ -23,45 +24,8 @@
         </div>
         <div class="media-body">
           <h5><%= link_to diary.title, "/users/#{diary.user_id}/diaries/#{diary.id}", class: "mt-0" %></h5>
-          <%= diary.content %>
+          <%= diary.content.truncate(14) %>
         </div>
     </div>
 <% end %>
-
-
-<style>
-    .image {
-        margin-bottom: 20px;
-        margin-left: 40px;
-    }
-    
-    .name {
-        margin-left: 20px;
-        margin-bottom: 30px;
-    }
-    .diaries {
-        border-bottom: 1px solid gray;
-    }
-    
-    .user-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        border: 2px solid gray;
-    }
-    
-    .diaries_image {
-        width: 200px;
-        height:200px;
-    }
-
-    .media {
-        padding: 10px;
-        border-bottom: 1px solid gray;
-    }
-    @media screen and (max-width:500px) {
-        .container {
-            text-align: center;
-        }
-    }
-</style>
+</div>

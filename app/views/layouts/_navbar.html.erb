@@ -1,58 +1,66 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> Homework</a>
+  <a class="navbar-brand" href="/"> Homework</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
+      
       <% if user_signed_in? %>
       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Diary
+            日記
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "All diaries", all_diaries_path, class: "dropdown-item" %>
-            <%= link_to "My diaries", user_diaries_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Add diary", new_user_diary_path(current_user), class: "dropdown-item" %>
+            <%= link_to "みんなの日記", all_diaries_path, class: "dropdown-item" %>
+            <%= link_to "日記作成", new_user_diary_path(current_user), class: "dropdown-item" %>
           </div>
         </li>    
       
       
         <li class="nav-item">
-          <%= link_to "Tasks", tasks_path, class: "nav-link" %>
+          <%= link_to "課題", tasks_path, class: "nav-link" %>
         </li>
         
         <li class="nav-item">
-          <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
+          <%= link_to "マイページ", user_diaries_path(current_user), class: "nav-link" %>
         </li>
         
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Question
+            質問
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "All Questions", questions_path, class: "dropdown-item" %>
-            <%= link_to "Add Question", new_question_path, class: "dropdown-item" %>
+            <%= link_to "質問一覧", questions_path, class: "dropdown-item" %>
+            <%= link_to "質問提出", new_question_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_user.image.present? %>
+              <%= image_tag current_user.image, class: "navbar-user-image" %>
+            <% else %>
+              <%= image_tag "/images/noimage.png", class: "navbar-user-image" %>
+            <% end %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "プロフィール編集", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: "delete", class: "dropdown-item" %>
           </div>
         </li>    
         
-        <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "nav-link" %>
-        </li>
         
         
         
       <% else %>
         <li class="nav-item">
-          <%= link_to "Signup", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "登録", new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
         </li>
         
       <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200324065509) do
+ActiveRecord::Schema.define(version: 20200409072513) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20200324065509) do
     t.string   "title"
     t.text     "content"
     t.string   "images"
-    t.string   "videos"
+    t.string   "video"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.date     "day_of_diary"

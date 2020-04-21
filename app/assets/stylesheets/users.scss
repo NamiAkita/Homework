@@ -41,3 +41,39 @@
 }
   
 
+#user-show{
+      .image {
+        margin-bottom: 20px;
+        margin-left: 40px;
+    }
+    
+    .name {
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+    .diaries {
+        border-bottom: 1px solid gray;
+    }
+    
+    .user-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 2px solid gray;
+    }
+    
+    .diaries_image {
+        width: 200px;
+        height:200px;
+    }
+
+    .media {
+        padding: 10px;
+        border-bottom: 1px solid gray;
+    }
+    @media screen and (max-width:500px) {
+        .container {
+            text-align: center;
+        }
+    }
+}

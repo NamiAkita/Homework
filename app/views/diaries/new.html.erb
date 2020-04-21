@@ -1,7 +1,7 @@
-
+<div id="new-diary" >
 <div class="task_form">
     <h1>Dairy</h1>
-    <div>
+    <div class="container">
         <%= form_for [@user, @diary] do |f| %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <div class="diary-new">
@@ -21,8 +21,8 @@
               <%= f.file_field :images, multiple: true %><br />
             </div>
             <div class="diary-new">
-              <%= f.label :Videos %><br />
-              <%= f.file_field :videos, multiple: true %><br />
+              <%= f.label :Video %><br />
+              <%= f.file_field :video %><br />
             </div>            
             <div class="diary-new">
               <%= f.submit 'Go!!', class: "submit btn btn-primary" %>
@@ -35,3 +35,4 @@
     </div>
 </div>
 
+</div>
