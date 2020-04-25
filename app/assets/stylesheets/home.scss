@@ -1,16 +1,34 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the home controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container-1 {
-    // border-bottom: 1px solid gray;
-}
+// .container-1 {
+//     // border-bottom: 1px solid gray;
+// }
 
-.back-image-1 {
-  width: 800px auto;
-  height: 400px;
-  margin-bottom: 15px;
-}
+// .back-image-1 {
+//   width: 50%;
+//   height: 400px;
+//   margin-bottom: 15px;
+// }
+
+ .back-image-1-area {
+    display: inline-block;
+    position: relative;
+  }
+  
+  
+  .signup-button {
+    position: absolute;
+    top: 15vw;
+    left: 15vw;
+  }
+  
+  .login-button {
+    position: absolute;
+    top:200px;
+    left: 300px;    
+  }
 
 .box17{
     margin: 20px;
@@ -38,8 +56,8 @@
 }
 
 .diary-info {
-    padding-top: 50px;
-    display: inline-block;
+    text-align: center;
+    padding: 30px 0 0 0;
 }
 
 .info-1 {
@@ -48,21 +66,21 @@
     font-size: 18px;
 }
 
-.container-2::after {
-  content: "";
-  display: block;
-  clear: both;
-//   border-bottom: 1px solid gray;
-//   height: 430px;
-}
+// .container-2::after {
+//   content: "";
+//   display: block;
+//   clear: both;
+// //   border-bottom: 1px solid gray;
+// //   height: 430px;
+// }
 
-.back-image-2 {
-  width: 800px auto;
-  height: 400px;
-  margin-bottom: 15px ;
-  margin-top: 20px;
-  float: right;
-}
+// .back-image-2 {
+//   width: 800px auto;
+//   height: 400px;
+//   margin-bottom: 15px ;
+//   margin-top: 20px;
+//   float: right;
+// }
 
 .box18{
     margin: 20px;
@@ -71,6 +89,8 @@
     border-top: solid 2px black;
     border-bottom: solid 2px black;
     font-size: 25px;
+    text-align: center;
+    // width: 300px;
 
 }
 .box18:before, .box18:after{
@@ -90,7 +110,7 @@
 }
 
 .task-info {
-    padding-top: 50px;
+    padding-top: 30px;
     display: inline-block;
 }
 
@@ -101,17 +121,28 @@
 }
 
 
-@media screen and (max-width:375px) {
-    .back-image-1 {
-        margin:5px;
-        height: auto;
-        width: 100%;
-        text-align: center;
-    }
+// @media screen and (max-width:375px) {
+//     .back-image-1 {
+//         margin:5px;
+//         height: auto;
+//         width: 100%;
+//         text-align: center;
+//     }
     
-    .back-image-2 {
+//     .back-image-2 {
         
-        height: auto;
-        width: 100%;
-    }
-}
+//         height: auto;
+//         width: 100%;
+//     }
+// }
+
+
+// // flash 
+// .flash {
+//     width: 100%;
+//     height: 50px;
+//     background: aqua;
+//     margin: 0 0 30px 0;
+//     text-align: center;
+//     line-height: 50px;
+// }

@@ -203,17 +203,51 @@ a {
 
 
 #mydiary {
+  
+   .profile-image{
+    display: inline-block;
+    padding: 0 50px 0 0;
+    height: 200px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+
+  }
+  
+  .profile-content {
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 50%;    
+        
+  }
+  
+  .profile-area {
+    height: 200px;
+    position: relative;
+  }
+  
+  
+  
+  
+  
   .post-light {
     float: right;
   }
   
   .user-image {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 2px solid gray;  
   }
   
+  .profile-content {
+    inline: block;
+  }
   .diary-container {
     border-radius: 10px;
     background: rgba(0, 220, 255, 0.5);
@@ -242,8 +276,24 @@ a {
     .media:hover {
     background: rgba(0, 210, 255, 0.5);
     }
+  
+  .pagination-footer {
+     padding: 20px 0;
+   }
     
     @media screen and (max-width:500px) {
+      
+      
+      .profile-content {
+        display: inline-block;
+        position: absolute;
+        top: 50px;
+        left: 150px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        width: 180px;    
+            
+      }
   
       .media {
         padding-bottom: 20px;
@@ -259,7 +309,24 @@ a {
       }
   
   }
+  
+  
+  @media screen and (max-width:370px) {
+    
+          
+      .profile-content {
+        display: inline-block;
+        position: absolute;
+        top: 50px;
+        left: 150px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        width: 135px;    
+            
+      }
+    
   }
+}
 
 
 

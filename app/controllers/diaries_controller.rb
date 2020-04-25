@@ -7,7 +7,7 @@ class DiariesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @diaries = Diary.where(user_id: params[:user_id]).order(created_at: :desc)
+    @diaries = Diary.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(5)
   end
   
   def all_index

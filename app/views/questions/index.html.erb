@@ -1,14 +1,14 @@
 <div id="all-questions">
-<h1>Question 一覧</h1>
+<h1>質問一覧</h1>
 <div class="container">
 <table class="table table-hover">
   <%= paginate  @questions %>
   <thead>
     <tr bgcolor="#acbdc7">
-      <th scope="col">No.</th>
-      <th scope="col">Title</th>
-      <th scope="col">Content</th>
-      <th scope="col">date</th>
+      <th class="th-1">No.</th>
+      <th class="th-2">Title</th>
+      <th class="th-3">Content</th>
+      <th class="th-4">date</th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +16,8 @@
         <tr>
           <th scope="row"><%= question.id %></th>
           <!--<td>< link_to question.title, new_question_answer_path(question.id) %></td>-->
-          <td><%= link_to question.title, question_path(question.id) %></td>
-          <td><%= question.content %></td>
+          <td><%= link_to question.title.truncate(12), question_path(question.id) %></td>
+          <td class="th-3"><%= question.content.truncate(8) %></td>
           <td><%= question.created_at.strftime("%Y/%-m/%-d") %></td>
         </tr>
     <% end %>

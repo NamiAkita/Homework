@@ -7,10 +7,10 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save 
-      flash[:notice] = "made task successflly"
+      flash[:notice] = "課題を作成しました"
       redirect_to tasks_path
     else
-      flash[:notice] = "made task not successflly"
+      flash[:notice] = "作成できませんでした"
       render 'new'
     end
   end

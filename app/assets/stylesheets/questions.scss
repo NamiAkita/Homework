@@ -3,10 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #all-questions {
-    @media screen and (max-width:500px) {
+    @media (max-width: 430px) {
         .container  {
             width: auto;
+        }
         
+    .th-3 {
+          display: none;
         }
     }
 }
